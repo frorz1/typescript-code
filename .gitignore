@@ -1,0 +1,25 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+yarn-error.log
+yarn.lock
+npm-debug.log*
+package-lock.json
+.pnpm-debug.log
+
+dist
+
+# misc
+.vscode
+.creator
+.DS_Store
+stats.html
+
+*.local
+
+yarn-error.log
+.pnpm-debug.log
+
+tsconfig-lint.json
+.history

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "declaration": true,
+    "target": "ES5",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2016.Array.Include",
+      "ESNext",
+      "ScriptHost"
+    ],
+  },
+  "exclude": [
+    "src/js-extend",
+    "new关键字"
+  ]
+}
