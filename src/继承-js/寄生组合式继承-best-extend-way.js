@@ -84,3 +84,29 @@ function _extends (child, parent) {
   child.prototype = prototype
   child.prototype.constructor = child
 }
+
+
+// 最新方式
+function People (name) {
+  this.name = name
+}
+
+People.prototype.eat = function () {
+  console.log(this.name + 'eat')
+}
+
+function Coder (name, job) {
+  // 借用实例属性
+  People.call(this, name)
+  this.job = job
+
+  // 借用原型属性
+  Object.setPrototypeOf(Coder.prototype, People.prototype)
+}
+
+Coder.prototype.typing = function () {
+  console.log(this.name + '的工作为: ' + this.job + 'is typing')
+}
+
+const coder1 = new Coder('xiaoming', 'web')
+coder1.eat()
