@@ -28,6 +28,14 @@ class PromiseA {
   }
 
   then (onFulfilled, onRejected) {
+    // 如果p1 没有对状态进行处理， 如reject之后没有.catch()处理错误, 或者resolve之后没有.then()处理成功
+    // 那么p2就会直接透传 p1的状态
+    // const p1 = new Promise((resolve, reject) => {
+    //   reject()
+    // })
+    // const p2 = p1.then(() => { console.log(111) })
+
+    // 如果p1是pending，那么p2必然是pending，只有p1状态变化之后，p2才会变化
     return new PromiseA((resolve, reject) => {
       const handleResolve = (value) => {
         try {
@@ -51,6 +59,7 @@ class PromiseA {
             // 当x.resolve之后会调用x.then的 onFulfilled回调， 也就是p1.resolve被调用
             x.then(resolve, reject)
           } else {
+            // 没有后续处理，那上一个任务是什么状态，.then返回的任务就是什么状态
             resolve(x)
           }
         } catch (error) {
@@ -64,6 +73,7 @@ class PromiseA {
           if (x instanceof PromiseA) {
             x.then(resolve, reject)
           } else {
+            // 没有后续处理, 那上一个任务是什么状态，.then返回的任务就是什么状态
             reject(x)
           }
         } catch (error) {
