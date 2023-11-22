@@ -238,7 +238,7 @@ class MyPromise {
    * @param {iterable} promises 参数可能是迭代器，没有下标所以不能用for循环，可以用for...of
    */
   static all (promises) {
-    return new Promise((resolve, reject) => {
+    return new MyPromise((resolve, reject) => {
       let fulfilledCount = 0
       let count = 0 // 迭代器是没有length可用的
       const result = []
