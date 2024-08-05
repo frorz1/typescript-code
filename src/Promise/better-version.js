@@ -223,7 +223,8 @@ class MyPromise {
   }
 
   /**
-   * 直接reject，这就是规矩，我的规矩就是规矩
+   * 直接reject，该方法不能在const pro1 = new Promise(() => {})的回调中使用，否则当前pro1即无法resolve也无法reject。只能在then或者catch中使用
+   * 或者不搭配promise使用
    * @param {*} value 
    * @returns promise
    */
