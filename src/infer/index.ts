@@ -215,3 +215,23 @@ type Split<T extends string> = T extends `${infer U}.${infer Rest}`
 type test = Split<path>; // type test =  a  |  b  |  c
 
 export {};
+
+
+type CharMap = {
+  a: "A"; b: "B"; c: "C"; d: "D"; e: "E"; f: "F"; g: "G"; h: "H"; i: "I"; j: "J";
+  k: "K"; l: "L"; m: "M"; n: "N"; o: "O"; p: "P"; q: "Q"; r: "R"; s: "S"; t: "T";
+  u: "U"; v: "V"; w: "W"; x: "X"; y: "Y"; z: "Z";
+}
+type Capitalize2 <T extends string> = 
+  T extends `${infer F}${infer R}`
+  ? F extends keyof CharMap
+    ? `${CharMap[F]}${R}`
+    : T
+  : T
+
+type UpperCase2<T extends string> = 
+  T extends `${infer F}${infer R}`
+  ? F extends keyof CharMap
+    ? `${CharMap[F]}${UpperCase2<R>}`
+    : `${F}${UpperCase2<R>}`
+  : T

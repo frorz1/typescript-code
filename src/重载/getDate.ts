@@ -7,8 +7,8 @@ function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
     return new Date(mOrTimestamp);
   }
 }
-const d1 = makeDate(12345678);
-const d2 = makeDate(5, 5, 5);
+makeDate(12345678);
+makeDate(5, 5, 5);
 
 // 因为重载签名为前两个，第三个为实现，用来兼容前两个重载签名
 // 用于编写函数体的签名不能从外部“看到，所以对于使用者来说只有两个函数签名
