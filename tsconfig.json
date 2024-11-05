@@ -15,6 +15,9 @@
       "ScriptHost"
     ],
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [
     "src/js-extend",
     "new关键字"
