@@ -1,8 +1,18 @@
 # typescript-code
 ts的一些练习总结
 
+# 何时用 TSC 打包
+
+- 需要声明文件：如 Utils, 一些 SDK。用 tsc 生成类型，再使用 rollup/webpack 打包
+- 插件/工具类：比如 Vite Plugin, Tracker 生成器，Yapi to Types 等工具。
+- 目标是生成 .js 文件和类型声明文件 .d.ts 而不需要其他静态资源（如 CSS、图片等）
+- Node.js 项目
+
 # tsconfig
+
 [tsconfig.json](./https://wangdoc.com/typescript/tsconfig.json)
+
+根据配置总结出的 TS 配置参考 `tsconfig.json`。Vite React 参考 `vite-react.json`。
 
 ## files
 
@@ -388,7 +398,7 @@ resolveJsonModule允许 import 命令导入 JSON 文件。
 
 rootDir 定义了 TypeScript 编译器在项目中查找源文件的起始路径，也就是编译时的 "逻辑根目录", 这个选项主要**影响输出目录结构的保持**。例如，如果配置了 outDir 来指定编译后的文件输出目录，TypeScript 会在 outDir 中保持相对于 rootDir 的文件结构。
 
-```json
+```bash
 project/
 ├── src/
 │   ├── utils/
@@ -410,7 +420,7 @@ project/
 ```
 那么编译的结果则为
 
-```json
+```bash
 project/
 └── dist/
     ├── utils/
