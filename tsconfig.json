@@ -2,21 +2,53 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "declaration": true,
-    "target": "ES5",
-    "module": "CommonJS",
+    "jsx": "react-jsx",
+    
+    "target": "ES2015",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+
+    "declaration": true,
+    "noEmitOnError": false,
+
+    "noEmitHelpers": true,
+    "importHelpers": true,
+
+
+    "preserveConstEnums": false,
+    "removeComments": true,
+
+    "strict": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "useDefineForClassFields": true,
+    "useUnknownInCatchVariables": true,
+
+    "forceConsistentCasingInFileNames": true,
+
+    "skipLibCheck": true,
+
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ES2016.Array.Include",
       "ESNext",
-      "ScriptHost"
     ],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
-    "src/**/*.ts"
+    "./src/util/*"
   ],
   "exclude": [
     "src/js-extend",
